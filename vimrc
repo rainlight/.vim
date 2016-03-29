@@ -13,6 +13,7 @@ au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
 au BufWrite /private/etc/pw.* set nowritebackup nobackup
 
 " Syntax info, :help syntax.txt
+set hls
 syntax enable
 syntax on
 colorscheme desert
@@ -46,3 +47,7 @@ filetype plugin indent on
 set completeopt=longest,menu
 let g:SuperTabRetainCompletionType=2
 let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+
+" My personal prefer
+:map <C-a> <C-]>
+:map <C-z> <C-T>
