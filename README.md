@@ -3,7 +3,6 @@ vim config
 
 Install:
 
-  cd && git clone https://github.com/rainlight/.vim
-
-  mv .vim/vimrc ./.vimrc
+<br>cd && git clone https://github.com/rainlight/.vim
+<br>mv .vim/vimrc ./.vimrc
   
