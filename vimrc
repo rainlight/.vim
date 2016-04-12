@@ -51,3 +51,13 @@ let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 " My personal prefer
 :map <C-a> <C-]>
 :map <C-z> <C-T>
+
+" Vundle running
+" :PluginInstall to install packages
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim' " Vundle manager itself
+Plugin 'fatih/vim-go'      " vim-go for golang
+call vundle#end()
+filetype plugin indent on
