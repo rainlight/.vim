@@ -1,7 +1,7 @@
 # .vim
 vim config  
 
-Install:
+(1) Install:
 ```
    cd  &&
    git clone https://github.com/rainlight/.vim &&
@@ -10,3 +10,9 @@ Install:
    git submodule update &&
    mv ~/.vim/vimrc ~/.vimrc
 ```
+(2) Install Plugin
+   ```
+   vim
+   :PluginInstall
+   wait process done
+   ```
