@@ -36,26 +36,14 @@ set foldlevel=99
 nnoremap <space> za
 let g:SimpylFold_docstring_preview=1
 
-" For python
-au BufNewFile,BufRead *.py
-   \ set tabstop=4
-   \ set softtabstop=4
-   \ set shiftwidth=4
-   \ set textwidth=79
-   \ set expandtab
-   \ set autoindent
-   \ set fileformat=unix
-
-" For C/C++
-au BufNewFile,BufRead *.c,*.cpp,*.h,*.hpp,*.cc
-   \ set tabstop=4
-   \ set softtabstop=4
-   \ set shiftwidth=4
-   \ set textwidth=79
-   \ set expandtab
-   \ set autoindent
-   \ set fileformat=unix
-
+" Indent setting
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set textwidth=79
+set expandtab
+set autoindent
+set fileformat=unix
 
 " Cscope
 :set cscopequickfix=s-,c-,d-,i-,t-,e-
@@ -85,8 +73,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim' " Vundle manager itself
 Plugin 'fatih/vim-go'      " vim-go for golang
 Plugin 'Yggdroot/indentLine'
-Plugin 'tmhedberg/SimpylFold' " Folding
-Plugin 'vim-scripts/indentpython.vim' " python indent
+"Plugin 'tmhedberg/SimpylFold' " Folding
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 
