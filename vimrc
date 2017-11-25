@@ -64,6 +64,7 @@ let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 " My personal prefer
 :map <C-a> <C-]>
 :map <C-z> <C-T>
+let g:go_version_warning = 0
 
 " Vundle running
 " :PluginInstall to install packages
@@ -74,8 +75,40 @@ Plugin 'gmarik/Vundle.vim' " Vundle manager itself
 Plugin 'fatih/vim-go'      " vim-go for golang
 Plugin 'Yggdroot/indentLine'
 "Plugin 'tmhedberg/SimpylFold' " Folding
-Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'nvie/vim-flake8'
 
 call vundle#end()
 filetype plugin indent on
+
+function AddTitle()
+    call append(0, "#!/usr/bin/env python")
+    call append(2, "# -*- coding: utf-8 -*-")
+    call append(3, "############################################################")
+    call append(4, "#                                                           ")
+    call append(5, "# Copyright (C)2017 SenseDeal AI, Inc. All Rights Reserved  ") 
+    call append(6, "#                                                           ")
+    call append(7, "############################################################")
+    call append(8, "")
+    call append(9, "'''                                                       ")
+    call append(10, "File: ".expand("%:t")                                     )
+    call append(11,"Author: liuyuliang                                        ")
+    call append(12,"Email: lyl@sensedeal.ai                                   ")
+    call append(13,"Last modified: ".strftime("%Y-%m-%d %H:%M")                )
+    call append(14,"Description:                                              ")
+    call append(15, "'''")
+endf
+
+map <C-m> :call AddTitle()<cr>
+map <C-n> :call UpdateTitle()<cr>
+
+function UpdateTitle()
+    normal m'
+    execute '/Last modified: /s@:.*$@\=": ".strftime("%Y-%m-%d %H:%M")@'
+    normal ''
+    normal mk
+    execute '/File: /s@:.*$@\=": ".expand("%:t")@'
+    execute "noh"
+    normal 'k
+    echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
+endfunction
