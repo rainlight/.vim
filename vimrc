@@ -83,7 +83,7 @@ filetype plugin indent on
 
 function AddTitle()
     call append(0, "#!/usr/bin/env python")
-    call append(2, "# -*- coding: utf-8 -*-")
+    call append(1, "# -*- coding: utf-8 -*-")
     call append(3, "############################################################")
     call append(4, "#                                                           ")
     call append(5, "# Copyright (C)2017 SenseDeal AI, Inc. All Rights Reserved  ") 
