@@ -21,6 +21,7 @@ syntax on
 colorscheme desert
 
 set cursorline
+set nu
 
 " taglist info, help taglist.txt
 let Tlist_Show_One_File=1 
@@ -40,7 +41,6 @@ let g:SimpylFold_docstring_preview=1
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set textwidth=79
 set expandtab
 set autoindent
 set fileformat=unix
@@ -74,12 +74,35 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim' " Vundle manager itself
 Plugin 'fatih/vim-go'      " vim-go for golang
 Plugin 'Yggdroot/indentLine'
+Plugin 'vim-airline/vim-airline'
+Plugin 'chriskempson/base16-vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'luochen1990/rainbow'
+let g:rainbow_active = 1 "0 if you want to enable it later via : RainbowToggle
 "Plugin 'tmhedberg/SimpylFold' " Folding
 "Plugin 'scrooloose/syntastic'
 "Plugin 'nvie/vim-flake8'
 
 call vundle#end()
 filetype plugin indent on
+
+function AddBashTitle()
+    call append(0, "#!/bin/bash")
+    call append(2, "############################################################")
+    call append(3, "#                                                           ")
+    call append(4, "# Copyright (C) 2018 SenseDeal AI, Inc. All Rights Reserved ")
+    call append(5, "#                                                           ")
+    call append(6, "############################################################")
+    call append(7, "")
+    call append(8, "##############################")
+    call append(9, "# File: ".expand("%:t"))
+    call append(10, "# Author: ") "Need to change to your own name
+    call append(11, "# E-mail: ") "Need to change to your email too
+    call append(12, "# Last modified: ".strftime("%Y-%m-%d %H:%M"))
+    call append(13, "# Description: ")
+    call append(14, "##############################")
+    call append(15, "")
+endf
 
 function AddTitle()
     call append(0, "#!/usr/bin/env python")
@@ -90,17 +113,19 @@ function AddTitle()
     call append(6, "#                                                           ")
     call append(7, "############################################################")
     call append(8, "")
-    call append(9, "'''                                                       ")
+    call append(9, "\"\"\"                                                   ")
     call append(10, "File: ".expand("%:t")                                     )
-    call append(11,"Author: liuyuliang                                        ")
-    call append(12,"Email: lyl@sensedeal.ai                                   ")
+    call append(11,"Author: ") "Need to change your own name here
+    call append(12,"E-mail: ") "Need to change your email too
     call append(13,"Last modified: ".strftime("%Y-%m-%d %H:%M")                )
     call append(14,"Description:                                              ")
-    call append(15, "'''")
+    call append(15, "\"\"\"   ")
+    call append(16, "")
 endf
 
 map <C-m> :call AddTitle()<cr>
 map <C-n> :call UpdateTitle()<cr>
+map <C-x> :call AddBashTitle()<cr>
 
 function UpdateTitle()
     normal m'
