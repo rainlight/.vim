@@ -109,8 +109,8 @@ function AddTitle()
     call append(1, "# -*- coding: utf-8 -*-")
     call append(3, "############################################################")
     call append(4, "#                                                           ")
-    call append(5, "# Copyright (C)2017 SenseDeal AI, Inc. All Rights Reserved  ") 
-    call append(6, "#                                                           ")
+    call append(5, "# Copyright (C)2018 SenseDeal AI, Inc. All Rights Reserved  ") 
+    call append(6, "#                                                          ")
     call append(7, "############################################################")
     call append(8, "")
     call append(9, "\"\"\"                                                   ")
@@ -123,10 +123,6 @@ function AddTitle()
     call append(16, "")
 endf
 
-map <C-m> :call AddTitle()<cr>
-map <C-n> :call UpdateTitle()<cr>
-map <C-x> :call AddBashTitle()<cr>
-
 function UpdateTitle()
     normal m'
     execute '/Last modified: /s@:.*$@\=": ".strftime("%Y-%m-%d %H:%M")@'
@@ -137,3 +133,7 @@ function UpdateTitle()
     normal 'k
     echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
 endfunction
+
+map <C-m> ms:call AddTitle()<cr>'S
+map <C-n> :call UpdateTitle()<cr>
+map <C-x> :call AddBashTitle()<cr>
