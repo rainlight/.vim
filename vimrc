@@ -134,6 +134,6 @@ function UpdateTitle()
     echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
 endfunction
 
-map <C-m> ms:call AddTitle()<cr>'S
-map <C-n> :call UpdateTitle()<cr>
-map <C-x> :call AddBashTitle()<cr>
+map <F4> ms:call AddTitle()<cr>'S
+map <F5> ms:call UpdateTitle()<cr>'S
+map <F6> ms:call AddBashTitle()<cr>'S
